@@ -1,0 +1,1408 @@
+<html lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Médecin Malgré Lui</title>
+<style>
+          html, body {
+            margin: 0;
+            padding: 0;
+          }
+
+          html {
+            scroll-behavior: smooth;
+          }
+
+          body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #efe8da;
+            color: #22201c;
+            line-height: 1.7;
+          }
+
+          .page-shell {
+            padding: 3rem 1.5rem 4rem 1.5rem;
+          }
+
+          .page-card {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fffdf8;
+            box-shadow: 0 12px 36px rgba(74, 58, 37, 0.10);
+            border: 1px solid #ddd2bd;
+          }
+
+          .with-sidebar {
+            display: grid;
+            grid-template-columns: 260px minmax(0, 1fr);
+            gap: 2.5rem;
+            padding: 2.5rem 3rem 4rem 3rem;
+          }
+
+          .toc {
+            position: sticky;
+            top: 1rem;
+            align-self: start;
+            max-height: calc(100vh - 2rem);
+            overflow: auto;
+            padding-right: 1rem;
+            border-right: 1px solid #d8cdb9;
+          }
+
+          .toc h2 {
+            margin: 0 0 1rem 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #314554;
+          }
+
+          .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          .toc ul ul {
+            margin-top: 0.35rem;
+            margin-left: 0.85rem;
+            padding-left: 0.85rem;
+            border-left: 1px solid #e0d5c2;
+          }
+
+          .toc li {
+            margin: 0.35rem 0;
+          }
+
+          .toc a {
+            text-decoration: none;
+            color: #314554;
+          }
+
+          .toc a:hover {
+            text-decoration: underline;
+          }
+
+          .main-column {
+            min-width: 0;
+          }
+
+          .document-header {
+            border-bottom: 1px solid #d8cdb9;
+            margin-bottom: 2.2rem;
+            padding-bottom: 1rem;
+          }
+
+          .document-header h1 {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 2rem;
+            margin: 0 0 0.5rem 0;
+            color: #314554;
+            letter-spacing: 0.01em;
+          }
+
+          .source {
+            margin: 0;
+            color: #74695e;
+            font-size: 0.96rem;
+          }
+
+          .tei-text {
+            font-size: 1.08rem;
+          }
+
+          p, .ab {
+            margin: 0 0 1em 0;
+            text-align: justify;
+          }
+
+          .div {
+            margin-bottom: 1.3rem;
+            scroll-margin-top: 1rem;
+          }
+
+          h2 {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 1.35rem;
+            margin-top: 2.2rem;
+            margin-bottom: 1rem;
+            color: #314554;
+          }
+
+          .div-head {
+            scroll-margin-top: 1rem;
+          }
+
+          .pb {
+            margin: 2.3rem 0 1.4rem 0;
+            padding-top: 0.7rem;
+            border-top: 1px solid #bcae95;
+            color: #7a6d5c;
+            text-align: center;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+          }
+
+          .title-page {
+            margin: 2.5rem 0 3rem 0;
+            padding: 4rem 2rem;
+            background: #f6f0e3;
+            border: 1px solid #d9ccb4;
+            text-align: center;
+          }
+
+          .title-page-text {
+            text-align: center;
+            font-size: 1.6rem;
+            line-height: 2;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin: 0;
+          }
+
+          .note {
+            margin: 1rem 0;
+            padding: 0.85rem 1rem;
+            background: #f2ebde;
+            border-left: 4px solid #b7a58a;
+            font-size: 0.95rem;
+            color: #4e473f;
+          }
+
+          .sp {
+            margin-bottom: 0.7rem;
+          }
+
+          .speaker {
+            display: block;
+            margin: 1.2em 0 0.2em 0;
+            font-variant: small-caps;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            text-align: left;
+          }
+
+          .sp .speaker + p,
+          .sp .speaker + .ab,
+          .sp .speaker + div,
+          .sp .speaker + section {
+            margin-top: 0.15rem;
+          }
+
+          .stage {
+            font-style: italic;
+            margin: 0.4rem 0 0.8rem 0;
+          }
+
+          .lg {
+            margin: 0 0 1em 0;
+          }
+
+          .l {
+            margin: 0;
+            text-align: left;
+          }
+
+          .add {
+            color: #0b6e4f;
+            font-weight: 500;
+          }
+
+          .del {
+            color: #9f2d2d;
+            text-decoration: line-through;
+          }
+
+          .hi {
+            font-style: italic;
+          }
+
+          .choice {
+            display: inline;
+          }
+
+          .tei-text ul {
+            margin: 0.5rem 0 1rem 1.4rem;
+          }
+
+          .tei-text li {
+            margin-bottom: 0.4rem;
+          }
+
+          @media (max-width: 900px) {
+            .with-sidebar {
+              grid-template-columns: 1fr;
+              padding: 1.5rem 1.5rem 2.5rem 1.8rem;
+            }
+
+            .toc {
+              position: static;
+              max-height: none;
+              border-right: none;
+              border-bottom: 1px solid #d8cdb9;
+              padding-right: 0;
+              padding-bottom: 1rem;
+              margin-bottom: 1.5rem;
+            }
+
+            .title-page {
+              padding: 2.5rem 1rem;
+            }
+
+            .title-page-text {
+              font-size: 1.25rem;
+              letter-spacing: 0.08em;
+            }
+          }
+        </style>
+</head>
+<body><main class="page-shell"><div class="page-card with-sidebar">
+<aside class="toc"><h2>Sommaire</h2>
+<ul>
+<li><a href="#div-id1">LE MEDECIN MALGRE LUI</a></li>
+<li><a href="#div-id2">COMÉDIE.</a></li>
+<li><a href="#div-id3">LE MEDECIN MALGRÉ LUI,</a></li>
+<li><a href="#div-id4">COMEDIE.</a></li>
+<li>
+<a href="#div-id5">ACTE PREMIER.</a><ul>
+<li><a href="#div-id6">SCENE PREMIERE. SGANARELLE, MARTINE.</a></li>
+<li><a href="#div-id7">SCENE II. M. ROBERT, SGANARELLE, MARTINE.</a></li>
+<li><a href="#div-id8">SCENE III. SGANARELLE, MARTINE.</a></li>
+<li><a href="#div-id9">SCENE IV.</a></li>
+<li><a href="#div-id10">SCENE V. VALERE, LUCAS, MARTINE.</a></li>
+<li><a href="#div-id11">SCENE VI.SGANARELLE, VALERE, LUCAS.</a></li>
+<li><a href="#div-id12">FIN DU PREMIER ACTE</a></li>
+</ul>
+</li>
+</ul></aside><div class="main-column">
+<header class="document-header"><h1>Le Médecin Malgré Lui</h1></header><article class="tei-text">
+      <section class="div" id="div-id1">
+
+        <h2 class="div-head" id="head-id1">LE MEDECIN MALGRE LUI</h2>
+      </section>
+      <section class="div" id="div-id2" data-type="act">
+
+        <h2 class="div-head" id="head-id2">COMÉDIE.</h2>
+        <p>ACTEURS.</p>
+        
+          GÉRONTE, pere de Lucinde.
+          LUCINDE, fille de Géronte.
+          LÉANDRE, amantde Lucinde.
+          SGANARELLE, mari de Martine, domestique de Géronte.
+          MARTINE, femme de Sganarelle.
+          M. ROBERT, voisin de Sganarelle.
+          VALERE, domestique de Géronte.
+          LUCAS, mari de Jacqueline.
+          JACQUELINE, nourrice chez Géronte, &amp;femme de Lucas.
+          THIBAUT, pere de Perrin, paysans
+          PERRIN, fils de Thibaut, paysans
+        
+        <div class="stage">La scene est à la campagne.</div>
+      </section>
+      <section class="div" id="div-id3">
+
+        <h2 class="div-head" id="head-id3">LE MEDECIN MALGRÉ LUI,</h2>
+      </section>
+      <section class="div" id="div-id4" data-type="act">
+        <h2 class="div-head" id="head-id4">COMEDIE.</h2>
+      </section>
+      <section class="div" id="div-id5" data-type="act">
+
+        <h2 class="div-head" id="head-id5">ACTE PREMIER.</h2>
+        <section class="div" id="div-id6" data-type="scene">
+          <h2 class="div-head" id="head-id6">SCENE PREMIERE. SGANARELLE, MARTINE.</h2>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Non, je te dis que je n’en veux rien faire; &amp; que c’est à moi de parler, &amp;
+              d’être le maître.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Et je te dis, moi, que je veux que tu vives à ma fantaisie; &amp; que je ne me fuis
+              point mariée avec toi pour souffrir tes fredaines.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Oh! La grande fatigue que d’avoir une femme, &amp; qu’Aristote a bien raison, quand
+              il dit qu’une femme est pire qu’un démon!</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Voyez un peu l’habile homme, avec son benêt d’Aristote.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Oui, habile homme. Trouve-moi un faiseur de fagots qui sçache, comme moi, raisonner
+              des choses; qui ait servi six ans un fameux médecin, &amp; qui ait sçû, dans son
+              jeune âge, son rudiment par cœur.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Peste du fou fieffé !</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Peste de la carogne!</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Que maudit soit l’heure &amp; le jour, où je m’avisai d’aller dire oui!</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Que maudit soit le bec-cornu de notaire qui me fit signer ma ruine!</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>C’est bien à toi, vrayment, à te plaindre de cette affaire. Devrois-tu être un
+              seul moment sans rendre graces au Ciel de m’avoir pour ta femme, &amp; méritois-tu
+              d’épouser une personne comme moi ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Il est vray que tu me fis trop d’honneur, &amp; que j’eus lieu de me louer la
+              premiere nuit de nos nôces. Hé, morbleu, ne me fais point parler là-dessus. Je
+              dirois de certaines choses....</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Quoi ? Que dirois-tu ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Baste, laissons-là ce chapitre. Il suffit que nous sçavons ce que nous sçavons,
+              &amp; que tu fus bien heureuse de me trouver.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Qu’appelles-tu bien heureuse de te trouver ? Un homme qui me réduit à l’hôpital,
+              un débauché, un traître qui me mange tout ce que j’ai!</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Tu as menti, j’en bois une partie.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Qui me vend, piéce à piéce, tout ce qui est dans le logis!</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>C’est vivre de ménage.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Qui m’a ôté jusqu’au lit que j’avois !</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Tu t’en léveras plus malin.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Enfin, qui ne laisse aucun meuble dans toute la maison!</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>On en déménage plus aisément.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Et qui, du matin jusqu’au soir, ne fait que jouer &amp; que boire!</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>C’est pour ne me point ennuyer.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Et que veux-tu, pendant ce temps, que je fasse avec ma famille ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Tout ce qu’il te plaira.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>J’ai quatre pauvres petits enfans sur les bras.…</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Mets-les à terre.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Qui me demandent à toute heure du pain.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Donne-leur le fouet. Quand j’ai bien bû &amp; bien mangé, je veux que tout le monde
+              soit saoul dans ma maison.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Et tu prétends, yvrogne, que les choses aillent toujours de même ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ma femme, allons tout doucement, s’il vous plaît.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Que j’endure éternellement tes insolences &amp; tes débauches ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ne nous emportons point, ma femme.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Et que je ne sçache pas trouver le moyen de te ranger à ton devoir ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ma femme, vous sçavez que je n’ai pas l’ame endurante,&amp; que j’ai le bras assez
+              bon.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Je me moque de tes menaces.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ma petite femme, ma mie, votre peau vous demange à votre
+              ordinaire.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Je te montrerai bien que je ne te crains nullement.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ma chére moitié, vous avez envie de me dérober quelque chose.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Crois-tu que je m’épouvante de tes paroles ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Doux objet de mes vœux, je vous frotterai les oreilles.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Yvrogne que tu es!</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je vous battrai.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Sac à vin.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je vous rosserai.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Infame.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je vous étrillerai.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Traître, insolent, trompeur, lâche, coquin, pendard, gueux, belître, fripon,
+              maraud, voleur.…</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ah! Vous en voulez donc ?</p>
+            <div class="stage">(Sganarelle prend un bâton, &amp; bat sa femme.)</div>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <div class="stage">(criant.)</div>
+            <p>Ah, ah, ah, ah!</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Voilà le vray moyen de vous appaiser.</p>
+</div>
+        </section>
+        <section class="div" id="div-id7" data-type="scene">
+          <h2 class="div-head" id="head-id7">SCENE II. M. ROBERT, SGANARELLE, <br>MARTINE.</h2>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Holà, holà, holà. Fi. Qu’est-ce-ci ? Quelle infamie ! Peste soit le coquin, de
+              battre ainsi sa femme.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE</div>
+            <div class="stage">à m. Robert.</div>
+            <p>Et je veux qu’il me batte, moi.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Ah! J’y consens de tout mon cœur.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>De quoi vous mêlez-vous ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>J’ai tort.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Est-ce-là votre affaire ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Vous avez raison.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Voyez un peu cet impertinent, qui veut empêcher les maris de battre leurs
+              femmes!</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Je me rétracte.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Qu’avez-vous à voir là-dessus ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Rien.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Est-ce à vous d’y mettre le néz ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Non.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Mêlez-vous de vos affaires.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Je ne dis plus mot.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Il me plaît d’être battuë.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>D’accord.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Ce n’est pas à vos dépens.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Il est vray.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Et vous étes un sot, de venir vous fourrer où vous n’avez que faire.</p>
+            <div class="stage">(Elle lui donne un soufflet.)</div>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT </div>
+            <div class="stage">à Sganarelle.</div>
+            <p>Compere, je vous demande pardon de tout mon cœur. Faites, rossez, battez, comme il
+              faut, votre femme; je vous aiderai, si vous le voulez.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Il ne me plaît pas, moi.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Ah! C’est une autre chose.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je la veux battre, si je le veux; &amp; ne la veux pas battre, si je ne le veux
+              pas.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Fort bien.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>C’est ma femme, &amp; non pas la vôtre.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Sans doute.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Vous n’avez rien à me commander.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>D’accord.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je n’ai que faire de votre aide.</p>
+</div>
+          <div class="sp">
+<div class="speaker">M. ROBERT.</div>
+            <p>Très-volontiers.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Et vous étes un impertinent, de vous ingérer des affaires d’autrui. Apprenez que
+              Ciceron dit qu’entre l’arbre &amp; le doigt, il ne faut point mettre l’écorce.</p>
+            <div class="stage">(Il bat m. Robert, &amp; le chasse.)</div>
+</div>
+        </section>
+        <section class="div" id="div-id8" data-type="scene">
+          <h2 class="div-head" id="head-id8">SCENE III. SGANARELLE, MARTINE.</h2>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Oh cà, faisons la paix nous deux. Touche là¬</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Oui, après m’avoir ainsi battuë ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Cela n’est rien. Touche.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Je ne veux pas.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Hé ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Non.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ma petite femme.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Point.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Allons, te dis-je.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Je n’en ferai rien.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Vien, vien, vien.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Non, je veux être en colére.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Fi, c’est une bagatelle. Allons, allons.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Laisse-moi là.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Touche, te dis-je.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Tu m’as trop maltraitée.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Hé bien, va, je te demande pardon, mets-là ta main.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <div class="stage">(bas à part.)</div>
+            <p>Je te pardonne; mais tu le payeras.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Tu es une folle de prendre garde à cela. Ce sont petites choses qui sont de tems en
+              tems nécessaires dans l’amitié, &amp; cinq ou six coups de bâton, entre gens qui
+              s’aiment, ne font que ragaillardir l’affection. Va, je m’en vais au bois, &amp; je te
+              promets aujourd’hui plus d’un cent de fagots.</p>
+</div>
+        </section>
+        <section class="div" id="div-id9" data-type="scene">
+          <h2 class="div-head" id="head-id9">SCENE IV.</h2>
+          <div class="sp">
+<div class="speaker">MARTINE</div>
+            <div class="stage">Seule.</div>
+            <p>Va, quelque mine que je fasse, je n’oublierai pas mon ressentiment; &amp; je brûle
+              en moi-même de trouver les moyens de te punir des coups que tu m’as donnés. Je
+              sçais bien qu’une femme a toujours dans les mains de quoi se venger d’un mari; mais
+              c’est une punition trop délicate pour mon pendard. Je veux une vengeance qui se fasse
+              un peu mieux sentir, &amp; ce n’est pas contentement pour l’injure que j’ai
+              reçûë.</p>
+</div>
+        </section>
+        <section class="div" id="div-id10" data-type="scene">
+          <h2 class="div-head" id="head-id10">SCENE V. VALERE, LUCAS, MARTINE. <br>
+</h2>
+          <div class="sp">
+<div class="speaker">LUCAS </div>
+            <div class="stage">à Valere, sans voir Martine.</div>
+            <p>Parguenne, j’avons pris là tous deux une guéble de commission, &amp; je ne sçais
+              pas, moi, ce que je pensons attraper.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE </div>
+            <div class="stage">à Lucas, sans voir Martine.</div>
+            <p>Que veux-tu, mon pauvre nourricier ? Il faut bien obéir à notre maître; &amp;
+              puis, nous avons intérêt, l’un &amp; l’autre, à la santé de sa fille, notre
+              maîtresse; &amp; sans doute son mariage, différé par sa maladie, nous vaudra
+              quelque récompense. Horace, qui est libéral, a bonne part aux prétentions qu’on
+              peut avoir sur sa personne; &amp;, quoiqu’elle ait fait voir de l’amitié pour un
+              certain Léandre, tu sçais bien que son pere n’a jamais voulu consentir à le
+              recevoir pour son gendre.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE </div>
+            <div class="stage">révant à part, se croyant seule.</div>
+            <p>Ne puis-je point trouver quelque invention pour me venger ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS </div>
+            <div class="stage">à Valere.</div>
+            <p>Mais quelle fantaisie s’est-il bouté là dans la tête, puisque tous les médecins y
+              avont perdu leur latin ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE </div>
+            <div class="stage">à Lucas.</div>
+            <p>On trouve quelquefois à force de chercher, ce qu’on ne trouve pas d’abord; &amp;
+              souvent, en de simples lieux.… Oui, il faut que je m’en venge à quelque prix que ce
+              soit.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE </div>
+            <div class="stage">se croyant toujours seule.</div>
+            <p>Ces coups de bâton me reviennent au cœur; je ne sçaurois les digérer, &amp;...</p>
+            <div class="stage">(heurtant Valere &amp; Lucas.)</div>
+            <p>Ah! Messieurs, je vous demande pardon; je ne vous voyois pas, &amp; cherchois dans ma
+              tête quelque chose qui m’embarrasse.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Chacun a ses soins dans le monde; &amp; nous cherchons aussi ce que nous voudrions
+              bien trouver.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Seroit-ce quelque chose où je vous pûsse aider ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Cela se pourroit faire; &amp; nous tâchons de rencontrer quel¬ que habile homme,
+              quelque médecin particulier, qui pût donner quelque soulagement à la fille de notre
+              maître, attaquée d’une maladie qui lui a ôté tout d’un coup l’usage de la langue.
+              Plusieurs médecins ont déjà épuisé toute leur science après elle; mais on
+              trouve, parfois, des gens avec des secrets admirables, de certains remédes
+              particuliers, qui font le plus souvent ce que les autres n’ont sçû faire, &amp;
+              c’est là ce que nous cherchons.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE </div>
+            <div class="stage">(bas à part.)</div>
+            <p>Ah! Que le Ciel m’inspire une admirable invention pour me venger de mon pendard!</p>
+            <div class="stage">(haut.)</div>
+            <p>Vous ne pouviez jamais vous mieux adresser pour rencontrer ce que vous cherchez;
+              &amp; nous avons un homme, le plus merveilleux homme du monde, pour les maladies
+              désespérées.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Hé, de grace, où pouvons-nous le rencontrer ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Vous le trouverez maintenant, vers ce petit lieu que voilà, <br>qui s’amuse à
+              couper du bois.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Un médecin qui coupe du bois ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Qui s’amuse à cueillir des simples, voulez-vous dire ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Non. C’est un homme extraordinaire, qui se plaît à cela, fantasque, bizarre,
+              quinteux, &amp; que vous ne prendriez jamais pour ce qu’il est. Il va vétu d’une
+              façon extravagante, affecte quelquefois de paroître ignorant, tient sa science
+              renfermée, &amp; ne fuit rien tant, tous les jours, que d’exercer les merveilleux
+              talens qu’il a eus du Ciel pour la médecine.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>C’est une chose admirable que tous les grands hommes ont <br>toujours du caprice,
+              quelque petit grain de folie mêlé à <br>leur science.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>La folie de celui-ci est plus grande qu’on ne peut croire;car elle va par fois
+              jusqu’à vouloir être battu pour demeurer d’accord de sa capacité, &amp; je vous
+              donne avis que vous n’en viendrez pas à bout, qu’il n’avouera jamais qu’il est
+              médecin, s’il se le met en fantaisie, que vous ne preniez chacun un bâton, &amp; ne
+              le réduisiez, à force de coups, à vous confesser à la fin ce qu’il vous cachera
+              d’abord. C’est ainsi que nous en usons, quand nous avons besoin de lui.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Voilà une étrange folie.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Il est vray; mais, après cela, vous verrez qu’il fait des merveilles.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Comment s’appelle-t-il ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Il s’appelle Sganarelle; mais il est aisé à connoître. C’est un homme qui a une
+              large barbe noire, &amp; qui porte une fraise, avec un habit jaune &amp;
+            vert.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Un habit jaune &amp; vart! C’est donc le médecin des perroquets ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Mais est-il bien vray qu’il soit aussi habile que vous le dites ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Comment ? C’est un homme qui fait des miracles. Il y a six mois qu’une femme fut
+              abandonnée de tous les autres médecins, on la tenoit morte il y avoit déjà six
+              heures, &amp; l’on se disposoit à l’ensévelir, lorsqu’on y fit venir de force
+              l’homme dont nous parlons. Il lui mit, l’ayant vûë, une petite goutte de je ne
+              sçais quoi dans la bouche, &amp;, dans le même instant, elle se leva de son lit,
+              &amp; se mit aussi-tôt à se promener dans sa chambre, comme si de rien n’eût
+              été.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Ah!</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Il falloit que ce fût quelque goutte d’or potable.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Cela pourroit bien être. Il n’y a pas trois semaines encore, qu’un jeune enfant de
+              douze ans tomba du haut du clocher en bas, &amp; se brisa, sur le pavé, la tête, les
+              bras &amp; les jambes. On n’y eut pas plûtôt amené notre homme, qu’il le frotta par
+              tout le corps d’un certain onguent qu’il sçait faire, &amp; l’enfant aussi-tôt se
+              leva sur ses piéds, &amp; courut jouer à la fossette.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Ah!</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Il faut que cet homme-là ait la médecine universelle.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Qui en doute ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Têtegué, vlà justement l’homme qu’il nous faut. Allons vîte le charcher.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Nous vous remercions du plaisir que vous nous faites.</p>
+</div>
+          <div class="sp">
+<div class="speaker">MARTINE.</div>
+            <p>Mais souvenez-vous bien, au moins, de l’avertissement que je vous ai donné.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Hé! Morguenne, laissez-nous faire. S’il ne tient qu’à battre, la vache est à
+              nous.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE </div>
+            <div class="stage">à Lucas.</div>
+            <p>Nous sommes bien heureux d’avoir fait cette rencontre; &amp; j’en conçois, pour moi,
+              la meilleure espérance du monde.</p>
+</div>
+        </section>
+        <section class="div" id="div-id11" data-type="scene">
+          <h2 class="div-head" id="head-id11">SCENE VI.SGANARELLE, VALERE, LUCAS.</h2>
+          
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">chantant derriére le théatre.</div>
+            <p>La, la, la.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>J’entends quelqu’un qui chante, &amp; qui coupe du bois.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">entrant sur le théatre avec une bouteille à sa main, sans appercevoir Valere ni
+              Lucas.</div>
+            <p>La, la, la.... Ma foi, c’est assez travaillé pour boire un coup. Prenons un peu
+              d’haleine.</p>
+            <div class="stage">(après avoir bu.)</div>
+            <p>Voilà du bois qui est salé comme tous les diables.</p>
+            <div class="stage">(Il chante.)</div>
+            <p>Qu'ils sont doux,</p>
+            <p>Bouteille jolie,</p>
+            <p>Qu’ils sont doux,</p>
+            <p>Vos petits glou-gloux!</p>
+            <p>Mais mon sort feroit bien des jaloux,</p>
+            <p>Si vous étiez toujours remplie.</p>
+            <p>Ah! Bouteille ma mie,</p>
+            <p>Pourquoi vous vuidez-vous ?</p>
+            <p>Allons, morbleu, il ne faut point engendrer de mélancolie.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE </div>
+            <div class="stage">bas à Lucas.</div>
+            <p>Le voilà lui-même.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS </div>
+            <div class="stage">bas à Valere.</div>
+            <p>Je pense que vous dites vray, &amp; que j’avons bouté le néz dessus.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Voyons de près.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">embrassant sa bouteille.</div>
+            <p>Ah! Ma petite friponne, que je t’aime! Mon petit bouchon.</p>
+            <div class="stage">(Il chante.)</div>
+            <div class="stage">(Appercevant Valere &amp; Lucas qui l’examinent, il baisse sa voix.)</div>
+            <p>Mais mon fort... feroit bien... des jaloux,</p>
+            <p>Si…</p>
+            <div class="stage">(Voyant qu’on l’examine de plus près.)</div>
+            <p>Que diable! A qui en veulent ces gens-là ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE </div>
+            <div class="stage">à Lucas.</div>
+            <p>C’est lui assûrément.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS</div>
+            <div class="stage">à Valere.</div>
+            <p>Le vlà tout craché comme on nous l’a défiguré.</p>
+            <div class="stage">(Sganarelle pose la bouteille à terre; &amp; Valere se baissant pour le saluer,
+              comme il croit que c’est à dessein de la prendre, il la met de l’autre côté; Lucas
+              faisant la même chose que Valere, Sganarelle reprend sa bouteille, &amp; la tient
+              contre son estomach, avec divers gestes, qui font un jeu de théatre.)</div>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">à part.</div>
+            <p>Ils consultent en me regardant. Quel dessein auroient-ils ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Monsieur, n’est-ce pas vous qui vous appellez Sganarelle ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Hé ? Quoi ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Je vous demande si ce n’est pas vous qui se nomme Sganarelle ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">(se tournant vers Valere, puis vers Lucas.)</div>
+            <p>Oui, &amp; non, selon ce que vous lui voulez.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Nous ne voulons que lui faire toutes les civilités que nous pourrons.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>En ce cas, c’est moi qui se nomme Sganarelle.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Monsieur, nous sommes ravis de vous voir. On nous a adressés à vous pour ce que
+              nous cherchons ; &amp; nous venons implorer votre aide, dont nous avons
+            besoin.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Si c’est quelque chose, Messieurs, qui dépende de mon petit négoce, je suis tout
+              prêt à vous rendre service.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Monsieur, c’est trop de grace que vous nous faites; mais, Monsieur, couvrez-vous,
+              s’il vous plaît, le soleil pourroit vous incommoder.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Monsieur, boutez dessus.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">à part.</div>
+            <p>Voici des gens bien pleins de cérémonie.</p>
+            <div class="stage">(Il se couvre.)</div>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Monsieur, il ne faut pas trouver étrange que nous venions à vous; les habiles gens
+              sont toujours recherchés, &amp; nous sommes instruits de votre capacité.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Il est vray, Messieurs, que je suis le premier homme du monde pour faire des
+              fagots.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Ah! Monsieur.…</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je n’y épargne aucune chose, &amp; les fais d’une façon qu’il n’y a rien a
+              redire.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Monsieur, ce n’est pas cela dont il est question.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Mais aussi je les vends cent dix sols le cent.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Ne parlons point de cela, s’il vous plaît.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je vous promets que je ne sçaurois les donner à moins.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Monsieur, nous sçavons les choses</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Si vous sçavez les choses, vous sçavez que je les vends cela.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Monsieur, c’est se moquer que.…</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je ne me moque point, je n’en puis rien rabattre.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Parlons d’autre façon, de grace.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Vous en pourrez trouver autre part à moins, il y a fagots &amp; fagots; mais, pour
+              ceux que je fais.…</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Hé, Monsieur, laissons-là ce discours.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Je vous jure que vous ne les auriez pas, s’il s’en falloit un double.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Hé! Fi.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Non, en conscience, vous en payerez cela. Je vous parle sincérement, &amp; ne suis
+              pas homme à surfaire.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Faut-il, Monsieur, qu’une personne comme vous s’amuse à ces grossiéres feintes,
+              s’abaisse à parler de la sorte ? Qu’un homme si sçavant, un fameux médecin comme
+              vous étes, veuille se déguiser aux yeux du monde, &amp; tenir enterrés les beaux
+              talens qu’il a ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">à part.</div>
+            <p>Il est fou.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>De grace, Monsieur, ne dissimulez point avec nous.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Comment ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Tout ce tripotage ne sart de rian; je sçavons c’en que je sçavons.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Quoi donc, que voulez-vous dire ? Pour qui me prenez-vous ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Pour ce que vous étes, pour un grand médecin.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Médecin vous-même; je ne le suis point, &amp; je ne l’ai jamais été.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <div class="stage">(bas)</div>
+            <p>Voilà sa folie qui le tient.</p>
+            <div class="stage">(haut)</div>
+            <p>Monsieur, ne veuillez point nier les choses davantage; &amp; n’en venons point, s’il
+              vous plaît, à de fâcheuses extrémités.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>A quoi donc ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>A de certaines choses dont nous serions marris.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Parbleu, venez-en à tout ce qu’il vous plaira; je ne suis point médecin, &amp; ne
+              sçais ce que vous me voulez dire.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <div class="stage">(bas.)</div>
+            <p>Je vois bien qu’il se faut servir du reméde.</p>
+            <div class="stage">(haut)</div>
+            <p>Monsieur, encore un coup, je vous prie d’avouer ce que vous étes.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Hé, têtegué, ne lantiponez point davantage, &amp; confessez à la franquette que
+              v’sétes médecin.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">à part.</div>
+            <p>J'enrage.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>A quoi bon nier ce qu’on sçait ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Pourquoi toutes ces fraimes là ? A quoi est-ce que ça vous sart ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Messieurs, en un mot, autant qu’en deux mille, je vous dis que je ne suis point
+              médecin.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Vous n’étes point médecin ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Non.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>V'n’étes pas médecin ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Non, vous dis-je.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Puisque vous le voulez, il faut bien s’y résoudre.</p>
+            <div class="stage">(Ils prennent chacun un bâton, &amp; le frappent.)</div>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ah, ah, ah! Messieurs, je suis tout ce qu’il vous plaira.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Pourquoi, Monsieur, nous obligez-vous à cette violence ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>A quoi bon nous bailler la peine de vous battre ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Je vous assûre que j’en ai tous les regrets du monde.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Par ma figué, j’en sis fâché franchement.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Que diable est ce-ci, Messieurs ? De grace, est-ce pour rire, ou si tous deux vous
+              extravaguez, de vouloir que je sois médecin ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Quoi! Vous ne vous rendez pas encore, &amp; vous vous défendez d’être
+              médecin ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Diable emporte, si je le suis.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Il n’est pas vray que vous sayez médecin ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <div class="stage">(Ils recommencent à le battre.) </div>
+            <p>Non, la peste m’étouffe. Ah, ah! Hé bien, Messieurs, oui, puisque vous le voulez,
+              je suis médecin, je suis médecin; apoticaire encore, si vous le trouvez bon. J’aime
+              mieux consentir à tout, que de me faire assommer.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Ah! Voilà qui va bien, Monsieur; je suis ravi de vous voir raisonnable.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Vous me boutez la joye au cœur, quand je vous vois parler comme ça.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Je vous demande pardon de toute mon ame.</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Je vous demandons excuse de la libarté que j’avons prise.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE </div>
+            <div class="stage">à part.</div>
+            <p>Ouais! Seroit-ce bien moi qui me tromperois, &amp; serois-je devenu médecin sans
+              m’en être apperçû ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Monsieur, vous ne vous repentirez pas de nous montrer ce que vous étes, &amp; vous
+              verrez, assûrément, que vous en serez satisfait.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Mais, Messieurs, dites-moi, ne vous trompez-vous point vous-mêmes ? Est-il bien
+              assûré que je sois médecin ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Oui, par ma figué.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Tout de bon ?</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Sans doute.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Diable emporte, si je le sçavois.</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Comment ! Vous étes le plus habile médecin du monde.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Ah! Ah!</p>
+</div>
+          <div class="sp">
+<div class="speaker">LUCAS.</div>
+            <p>Un médecin qui a gari je ne sçais combien de maladies.</p>
+</div>
+          <div class="sp">
+<div class="speaker">SGANARELLE.</div>
+            <p>Tudieu !</p>
+</div>
+          <div class="sp">
+<div class="speaker">VALERE.</div>
+            <p>Une femme étoit tenuë pour morte il y avoit six heures</p>
+</div>
+        </section>
+        <section class="div" id="div-id12">
+
+          <h2 class="div-head" id="head-id12">FIN DU PREMIER ACTE</h2>
+        </section>
+      </section>
+    </article>
+</div>
+</div></main></body>
+</html>
